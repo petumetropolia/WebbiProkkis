@@ -1,0 +1,188 @@
+#team {
+    text-align: center;     
+    color: #fff;
+    padding-top: 50px;
+    background-image: url(/Kuvat/tausta.jpg);
+    background-size: cover;
+    font-family: 'Dosis', sans-serif;
+    height: 100vh;
+}
+ 
+#team h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+    font-family: 'Dosis', sans-serif;
+    letter-spacing: 1px;
+}
+ 
+img {
+    max-width: 100%;
+    height: auto;
+}
+ul, ol {
+    margin: 0; padding: 0;
+    list-style-type: none;
+}
+a:hover { text-decoration: none; }
+ 
+.team-social li {
+    display: inline-block;
+}
+.team-social li a {
+    font-size: 14px;
+    color: #18191d;
+    height: 38px;
+    width: 38px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+ .team-img {
+    position: relative;
+}
+ .team-social.white-bg li a  {
+    background: #ffffff;
+}
+ 
+.team-coverflow {
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    width: 100%;
+    max-width: 365px;
+    margin: 0 auto;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+}
+.team-coverflow .team-text{
+    text-align: center;
+    font-size: 14px;
+     
+}
+.team-coverflow .team-text h5{
+    font-size: 1.6rem;
+}
+.swiper-slide-active .team-coverflow:hover .team-box-content {
+    opacity: 1;
+    visibility: visible;
+    border-radius: 0;
+    bottom: 0;
+}
+.team-box-content {
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba(18, 18, 20, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    padding: 20px 0;
+    bottom: -20%;
+    z-index: 1;
+    transition: all linear .4s;
+}
+.team-coverflow .team-img {
+    overflow: hidden;
+    width: 100%;
+} 
+.team-member-slider {
+    padding-bottom: 165px;
+}
+.team-member-slider .swiper-slide-shadow-left, .team-member-slider .swiper-slide-shadow-right {
+    display: none;
+}
+.team-member-slider .swiper-slide {
+    opacity: .5;
+}
+.team-member-slider .swiper-slide-prev {
+    transform: scale(1.1) translate3d(25%, 0px, -155.962px) rotateX(0deg) rotateY(2.9808deg) !important;
+    padding-right: 15px;
+    cursor: pointer;
+}
+.team-member-slider .swiper-slide-next {
+    transform: scale(1.1)  translate3d(-25%, 0px, -155.962px) rotateX(0deg) rotateY(-2.9808deg) !important;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.team-member-slider .swiper-slide-active {
+    transform:  translateY(25%) !important; 
+    transition: 300ms;
+    opacity: 1 !important;
+}
+ 
+.slider-arrows {
+    border-radius: 36px;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    line-height: 47px;
+}
+.footer{
+    padding: 40px 0;
+    background-color: #fff;
+}
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: #4b4c4d;
+}
+.footer .social a{
+    font-size: 24px;
+    color: inherit;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+.footer .social a:hover{
+    opacity: 0.9;
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a{
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer ul li a:hover{
+    opacity: 1;
+}
+.footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}

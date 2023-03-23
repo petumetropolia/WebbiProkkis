@@ -1,0 +1,17 @@
+---OMINAISUUDET---
+// Google API Googlella kirjautumiseen/rekisteröitymiseen
+// Henkilökortit, swipe-ominaisuus?, profiilin editointi
+// Databaset
+// Navbar? (jossa logo? ja profiili)
+
+---SIVUT---
+// Contact us
+// Password reset 
+// Terms & Privacy policy siistiminen
+// Home eli päävalikko
+// Profiilissa öbaut kaikki
+
+---IDEOITA---
+// Käyttäjän luomisen jälkeen siirtymä profiilin editointiin, ns. luodaan se profiili
+// Siellä mahdollisuus valita onko työnhakija vai työllistäjä? Hiukan erilaiset näkymät?
+// Täytyy miettiä miltä sivulta pääsee minne, eli footeria muokata myös. Ehkä kirjautuneilla eri näkymät esim About us sivulla?
