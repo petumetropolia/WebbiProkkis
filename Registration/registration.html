@@ -25,20 +25,15 @@
                 <div class="input-group">
                     <div class="input-field" id="nameField" method="post" name="form" onsubmit="return validated()">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name" name="name">
-                        <div id="name_error">Please fill up your name</div>
+                        <input type="text" placeholder="Name" name="name" required>
                     </div>
-
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input autocomplete="off" type="email" placeholder="Email" name="email">
-                        <div id="email_error">Please fill up your email</div>
+                        <input autocomplete="off" type="email" placeholder="Email" name="email" required>
                     </div>
-
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" id="myInput" name="password">
-                        <div id="pass_error">Please fill up your password</div>
+                        <input type="password" placeholder="Password" id="myInput" name="password" required>
                         <span class="eye" onclick="myFunction()">
                         <i id="hide1" class="fa fa-eye"></i>
                         <i id="hide2" class="fa fa-eye-slash"></i>
@@ -88,50 +83,12 @@
                 z.style.display = "block";
             }
         }
-        const email = document.forms['form']['email'];
-        const name = document.forms['form']['name'];
-        const password = document.forms['form']['password'];
-
-        const email_error = document.getElementById('email_error');
-        const name_error = document.getElementById('name_error');
-        const pass_error = document.getElementById('pass_error');
-
-        email.addEventListener('textInput', email_Verify);
-        password.addEventListener('textInput', pass_Verify);
-
-        function validated(){
-            if(email.value.length < 9) {
-                email.style.border = "1px solid red";
-                email_error.style.display = "block";
-                email.focus();
-                return false;
-            }
-            if(password.value.length < 7) {
-                password.style.border = "1px solid red";
-                pass_error.style.display = "block";
-                password.focus();
-                return false;
-        }
-    }
-    function email_Verify(){
-        if (email.value.length >= 8) {
-            email.style.border = "1px solid silver";
-            email_error.style.display = "none";
-            return true;
-        }
-    }
-    function pass_Verify(){
-        if (password.value.length >= 6) {
-            password.style.border = "1px solid silver";
-            pass_error.style.display = "none";
-            return true;
-        }
-    }
+    
     </script>
    <section class="footer">
     <div class="social">
         <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="https://github.com/petumetropolia/WebbiProkkis"><i class="fab fa-github"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-facebook-f"></i></a>
     </div>

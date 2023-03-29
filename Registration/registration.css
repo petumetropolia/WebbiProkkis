@@ -159,15 +159,6 @@ form p a{
 #hide1{
     display: none;
 }
-#email_error, #pass_error, #name_error{
-margin-top: 5px;
-width: 345px;
-font-size: 18px;
-color: #C62828;
-text-align: center;
-padding: 5px 8px;
-display: none;
-}
 
 header{
     position: fixed;
