@@ -7,7 +7,7 @@
 }
 body{
     background: #CCFBFE;
-    background-image: url(/Kuvat/tausta.jpg);
+    background-image: url(/kuvat/tausta.jpg);
     overflow: hidden;
     min-height: 100vh;
 }
