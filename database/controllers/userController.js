@@ -29,14 +29,29 @@ const getUser =  async (req, res) => {
         res.status(404).json({message: "User not found."})
     }
 };
-const postUser = (req,res) => {
-    console.log('req body:' +  req.body);
+
+/*const postUser = async (req, res) => {
+    try {
+        const newUser = {
+            name: req.body.name,
+            email: req.body.email,
+            passwd: req.body.password,
+        };
+        await insertUser(newUser);
+        res.status(201).send("Added user " + req.body.username);
+    } catch (e) {
+        console.error("error", e.message);
+        res.status(500).send("Failed to add user");
+    }
+};*/
+
+const postUser = async (req,res) => {
+    console.log('posting user' +  req.body);
     const newUser =
         {
             name: req.body.name,
             email: req.body.email,
             password: req.body.password
-
         };
     users.push(newUser);
     res.status(201).send("Added user " + req.body.username);
