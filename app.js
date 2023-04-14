@@ -15,7 +15,7 @@ app.use((req,res,next) => {
 app.use(cors());
 
 // Serve example-ui
-app.use(express.static('registration'));
+app.use(express.static('registration.html'));
 // Serve image files
 app.use('/uploads', express.static('uploads'));
 // Middleware for parsing request body
