@@ -1,6 +1,6 @@
 'use strict';
 const userModel = require('../models/userModel');
-//const users = userModel.users;
+//const user = userModel.user;
 
 
 const getUserList = async (req, res) => {
@@ -42,7 +42,9 @@ const postUser = async (req,res) => {
         res.status(500).json({error: 500, message: error.message});
     }
 }
+
 const putUser = (req,res) => {
+
 
 }
 const deleteUser = (req,res) => {

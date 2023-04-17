@@ -26,16 +26,16 @@ const getUserById = async (id) => {
 
 const insertUser = async (user) => {
     try {
-        const sql = `INSERT INTO wop_user VALUES (?, ?, ?, ?, ?, ?, ?)`;
-        const [rows] = await promisePool.query(sql, [
+        const sql =` INSERT INTO wop_user VALUES (?, ?, ?, ?, ?, ?, ?)`;
+        const [rows] = await promisePool.query(sql,[
             null,
             user.name,
             user.surname,
             user.email,
             user.password,
             user.filename,
-            user.role,
-            ]);
+            user.role
+        ]);
         return rows;
     } catch (e) {
         console.error("error", e.message);

@@ -1,21 +1,11 @@
 'use strict';
 const express = require('express');
-const multer = require('multer');
 const router = express.Router();
 const userController = require('../controllers/userController');
+const multer = require("multer");
+const upload = multer({dest: 'uploads/'});
 
-
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = ['image/jpeg', 'image/png'];
-    if (allowedTypes.includes(file.mimetype)) {
-        //accept file
-        cb(null, true);
-    } else {
-        //reject file
-        cb(null, false);
-    }
-};
-const upload = multer({dest: 'uploads/', fileFilter});
+module.exports = router;
 
 router.route('/')
     .get( userController.getUserList)
@@ -25,5 +15,3 @@ router.route('/')
 router.route('/:userId')
     .get(userController.getUser)
     .delete(userController.deleteUser)
-
-module.exports = router;
