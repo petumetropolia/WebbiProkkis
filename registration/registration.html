@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobSeeker</title>
-    <link rel="icon" type="image/x-icon" href="/kuvat/wifi.png" />
-    <link rel="stylesheet" href="/registration/registration.css">
+    <link rel="icon" type="image/x-icon" href="wifi.png" />
+    <link rel="stylesheet" href="registration.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -16,17 +16,22 @@
 <body>
     <header>
         <div class="logotext">JobSeeker 
-        <img src="/kuvat/wifi.png" class="logo">
+        <img src="wifi.png" class="logo">
         </div></header>
     <div class="container">
         <div class="form-box">
             <h1 id="title">Sign up</h1>
-            <form action="http://localhost:3000/registration" method="post" name="form">
+            <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
                 <div class="input-group">
                     <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user"></i>
                         <input type="text" placeholder="Name" name="name" required>
                     </div>
+                    <div class="input-group">
+                        <div class="input-field" id="surnameField">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Surname" name="surname" required>
+                        </div>
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
                         <input autocomplete="off" type="email" placeholder="Email" name="email" minlength="8" required>
@@ -38,7 +43,15 @@
                         <i id="hide1" class="fa fa-eye"></i>
                         <i id="hide2" class="fa fa-eye-slash"></i>
                         </span>
-                    </div>
+                    </div >
+                        <div class="input-field">
+                        <label for="myfile">Select a file:</label>
+                        <input type="file" id="myfile" name="user">
+                        </div>
+                        <div class="input-field" id="roleField">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" placeholder="Role" name="role" required>
+                        </div>
                     <p><a href="/registration/passwordreset.html">Forgot your password?</a></p>
                 </div>
                 <div class="btn-field">

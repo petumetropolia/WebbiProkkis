@@ -26,7 +26,7 @@ const getUserById = async (id) => {
 
 const insertUser = async (user) => {
     try {
-        const sql =` INSERT INTO wop_user VALUES (?, ?, ?, ?)`;
+        const sql =` INSERT INTO wop_user VALUES (?, ?, ?, ?, ?, ?, ?)`;
         const [rows] = await promisePool.query(sql,[
             null,
             user.name,

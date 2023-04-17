@@ -1,6 +1,6 @@
 'use strict';
 const userModel = require('../models/userModel');
-const users = userModel.users;
+//const user = userModel.user;
 
 
 const getUserList = async (req, res) => {
@@ -29,23 +29,22 @@ const getUser =  async (req, res) => {
         res.status(404).json({message: "User not found."})
     }
 };
-const postUser = (req,res) => {
-    console.log('req body:' +  req.body);
-    const newUser =
-        {
-            name: req.body.name,
-            surname: req.body.surname,
-            email: req.body.email,
-            password: req.body.password,
-            filename: req.body.filename,
-            role: req.body.role,
+const postUser = async (req,res) => {
 
-        };
-    users.push(newUser);
-    res.status(201).send("Added user " + req.body.username);
+    console.log("posting user", req.body, req.file);
+    const newUser = req.body;
+    newUser.filename = req.file.path;
+    try {
+        const result = await userModel.insertUser(newUser);
+        res.status(201).json({message: "new user added"})
+    }catch (error){
+        console.error("error",error.message);
+        res.status(500).json({error: 500, message: error.message});
+    }
 }
 
 const putUser = (req,res) => {
+
 
 }
 const deleteUser = (req,res) => {
