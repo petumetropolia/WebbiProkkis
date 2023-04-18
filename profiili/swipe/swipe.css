@@ -7,7 +7,7 @@
 }
 body{
     background: #CCFBFE;
-    background-image: url(/kuvat/tausta.jpg);
+    background-image: url(tausta.jpg);
     overflow: hidden;
     min-height: 100vh;
 }
@@ -153,7 +153,8 @@ header{
     cursor: grabbing;
 }
 .tinder--card img{
-    max-width: 100%;
+    max-width: 310px;
+    max-height: 310px;
     pointer-events: none;
 }
 .tinder--card h3{
