@@ -1,10 +1,11 @@
 "use strict";
 const passport = require("passport");
 const Strategy = require("passport-local").Strategy;
-const { getUserLogin } = require("../database/models/userModel");
+const { getUserLogin, getUserById } = require("../database/models/userModel");
 const passportJWT = require("passport-jwt");
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
+const bcrypt = require('bcryptjs');
 
 require("dotenv").config();
 
@@ -18,7 +19,8 @@ passport.use(
             if (user === undefined) {
                 return done(null, false, {message: 'Incorrect email.'});
             }
-            if (user.password !== password) {
+            const loginOK = await bcrypt.compare(password, user.password);
+            if (!loginOK) {
                 return done(null, false, {message: 'Incorrect password.'});
             }
             // use spread syntax to create shallow copy to get rid of binary row type
