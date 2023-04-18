@@ -33,7 +33,7 @@ const postUser = async (req,res) => {
 
     console.log("posting user", req.body, req.file);
     const newUser = req.body;
-    newUser.filename = req.file.path;
+    newUser.filename = req.file.filename;
     try {
         const result = await userModel.insertUser(newUser);
         res.status(201).json({message: "new user added"})
@@ -43,12 +43,30 @@ const postUser = async (req,res) => {
     }
 }
 
-const putUser = (req,res) => {
-
+const putUser = async (req,res) => {
+    const user = req.body;
+    try {
+        const result = await userModel.modifyUser(req.body);
+        res.status(200).json({message: "user modified"});
+    }
+    catch (e){
+        console.error("error", e.message);
+        res.status(500).json({error: 500, message: e.message});
+    }
 
 }
-const deleteUser = (req,res) => {
 
+
+const deleteUser = async (req,res) => {
+    console.log("deleting a cat", req.params.userId);
+    try {
+
+        const result = await userModel.deleteUser(req.params.userId);
+        res.status(200).send("User deleted");
+    }catch (e){
+        console.error("error",e.message);
+        res.status(500).json({error: 500, message: e.message});
+    }
 }
 
 const userController = {getUserList,getUser,postUser,putUser,deleteUser};
