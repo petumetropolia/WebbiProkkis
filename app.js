@@ -16,10 +16,13 @@ app.use(cors());
 
 // Serve example-ui
 app.use(express.static('registration'));
+app.use(express.static('kuvat'));
+app.use(express.static('profiili'));
+
 // Serve image files
 app.use('/uploads', express.static('uploads'));
-// Middleware for parsing request body
 
+// Middleware for parsing request body
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 

@@ -1,6 +1,6 @@
 'use strict';
 const userModel = require('../models/userModel');
-const users = userModel.users;
+//const user = userModel.user;
 
 
 const getUserList = async (req, res) => {
@@ -12,14 +12,14 @@ const getUserList = async (req, res) => {
     }
 };
 
-//TODO: UPDATE for new user model (check cat controller)
+
 const getUser =  async (req, res) => {
     const userId = Number(req.params.userId);
     if(!Number.isInteger(userId)) {
         res.status(400).json({error: 500, message: 'invalid id'});
         return;
     }
-    // TODO: wrap to try-catch
+
     const [user] = await userModel.getUserById(userId);
     console.log('getUser', user);
 
@@ -29,24 +29,44 @@ const getUser =  async (req, res) => {
         res.status(404).json({message: "User not found."})
     }
 };
-const postUser = (req,res) => {
-    console.log('req body:' +  req.body);
-    const newUser =
-        {
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
+const postUser = async (req,res) => {
 
-        };
-    users.push(newUser);
-    res.status(201).send("Added user " + req.body.username);
+    console.log("posting user", req.body, req.file);
+    const newUser = req.body;
+    newUser.filename = req.file.filename;
+    try {
+        const result = await userModel.insertUser(newUser);
+        res.status(201).json({message: "new user added"})
+    }catch (error){
+        console.error("error",error.message);
+        res.status(500).json({error: 500, message: error.message});
+    }
 }
 
-const putUser = (req,res) => {
+const putUser = async (req,res) => {
+    const user = req.body;
+    try {
+        const result = await userModel.modifyUser(req.body);
+        res.status(200).json({message: "user modified"});
+    }
+    catch (e){
+        console.error("error", e.message);
+        res.status(500).json({error: 500, message: e.message});
+    }
 
 }
-const deleteUser = (req,res) => {
 
+
+const deleteUser = async (req,res) => {
+    console.log("deleting a cat", req.params.userId);
+    try {
+
+        const result = await userModel.deleteUser(req.params.userId);
+        res.status(200).send("User deleted");
+    }catch (e){
+        console.error("error",e.message);
+        res.status(500).json({error: 500, message: e.message});
+    }
 }
 
 const userController = {getUserList,getUser,postUser,putUser,deleteUser};
