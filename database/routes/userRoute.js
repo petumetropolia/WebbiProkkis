@@ -5,7 +5,6 @@ const userController = require('../controllers/userController');
 const multer = require("multer");
 const upload = multer({dest: 'uploads'});
 
-module.exports = router;
 
 router.route('/')
     .get( userController.getUserList)
@@ -15,3 +14,6 @@ router.route('/')
 router.route('/:userId')
     .get(userController.getUser)
     .delete(userController.deleteUser)
+
+
+module.exports = router;

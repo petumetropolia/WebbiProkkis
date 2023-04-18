@@ -43,7 +43,6 @@ const insertUser = async (user) => {
     }
 };
 
-
 const modifyUser = async (user) => {
     try {
         const sql =`UPDATE wop_user SET name=?, surname=?, email=?, password=?, filename=?,
@@ -64,7 +63,6 @@ const modifyUser = async (user) => {
     }
 };
 
-
 const deleteUser = async (id) => {
     try {
         const sql =`DELETE FROM wop_user where user_id=?`;
@@ -76,10 +74,25 @@ const deleteUser = async (id) => {
     }
 };
 
+const getUserLogin = async (email) => {
+    try {
+        console.log(email);
+        const [rows] = await promisePool.execute(
+            'SELECT * FROM wop_user WHERE email = ?;',
+            [email]);
+        console.log('get user login rows', rows);
+        return rows;
+    } catch (e) {
+        console.log('error', e.message);
+    }
+};
+
+
 module.exports = {
     getAllUsers,
     getUserById,
     insertUser,
     modifyUser,
-    deleteUser
+    deleteUser,
+    getUserLogin,
 };

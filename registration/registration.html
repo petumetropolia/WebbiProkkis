@@ -14,51 +14,41 @@
 
 </head>
 <body>
-    <header>
-        <div class="logotext">JobSeeker 
+<header>
+    <div class="logotext">JobSeeker
         <img src="wifi.png" class="logo">
-        </div></header>
-    <div class="container">
-        <div class="form-box">
-            <h1 id="title">Sign up</h1>
-            <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
-                <div class="input-group">
-                    <div class="input-field" id="nameField">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name" name="name" required>
-                    </div>
-                    <div class="input-group">
-                        <div class="input-field" id="surnameField">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Surname" name="surname" required>
-                        </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input autocomplete="off" type="email" placeholder="Email" name="email" minlength="8" required>
-                    </div>
-                    <div class="input-field">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" id="myInput" name="password" minlength="8" required>
-                        <span class="eye" onclick="myFunction()">
+    </div></header>
+<div class="container">
+    <div class="form-box">
+        <h1 id="title">Sign up</h1>
+        <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
+            <div class="input-group">
+                <div class="input-field" id="nameField">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name" name="name" required>
+                </div>
+
+                <div class="input-field">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input autocomplete="off" type="email" placeholder="Email" name="email" minlength="8" required>
+                </div>
+                <div class="input-field">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="myInput" name="password" minlength="8" required>
+                    <span class="eye" onclick="myFunction()">
                         <i id="hide1" class="fa fa-eye"></i>
                         <i id="hide2" class="fa fa-eye-slash"></i>
                         </span>
-                    </div >
-                        <div class="input-field">
-                        <label for="myfile">Select a file:</label>
-                        <input type="file" id="myfile" name="user">
-                        </div>
-                        <div class="input-field" id="roleField">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" placeholder="Role" name="role" required>
-                        </div>
-                    <p><a href="/registration/passwordreset.html">Forgot your password?</a></p>
-                </div>
-                <div class="btn-field">
-                    <button type="submit" id="signupBtn">Sign up</button>
-                    <button type="button" id="signinBtn" class="disable">Sign in</button>
-                </div>
-            </form>
+                </div >
+                <p><a href="/registration/passwordreset.html">Forgot your password?</a></p>
+            </div>
+            <div class="btn-field">
+                <button type="submit" id="signupBtn">Sign up</button>
+                <button type="button" id="signinBtn" class="disable">Sign in</button>
+            </div>
+        </form>
+    </div>
+</div>
         </div>
     </div>
     <script>

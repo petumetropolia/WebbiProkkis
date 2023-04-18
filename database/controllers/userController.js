@@ -33,7 +33,7 @@ const postUser = async (req,res) => {
 
     console.log("posting user", req.body, req.file);
     const newUser = req.body;
-    newUser.filename = req.file.filename;
+   newUser.filename = req.file.filename;
     try {
         const result = await userModel.insertUser(newUser);
         res.status(201).json({message: "new user added"})
