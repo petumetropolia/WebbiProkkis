@@ -2,8 +2,13 @@
 const express = require('express');
 const cors = require('cors');
 const userRoute = require('./database/routes/userRoute');
+const passport = require('./utils/passport');
+const authRoute = require('./database/routes/authRoute');
+const session = require('express-session');
 const app = express();
 const port = 3000;
+
+
 
 // Log middleware
 app.use((req,res,next) => {
@@ -26,6 +31,9 @@ app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use(passport.initialize());
+app.use('/auth', authRoute);
+//app.use('/user', passport.authenticate('jwt', {session: false}), userRoute);
 
 
 app.use('/user', userRoute);

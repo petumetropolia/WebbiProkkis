@@ -1,0 +1,9 @@
+extends layout.pug
+block content
+    h1= 'Login'
+    form(method='post' action='/login')
+        input(type='text' name='username' placeholder='username')
+        br
+        input(type='password' name='password' placeholder='password')
+        br
+        button(type='submit')= 'login'
