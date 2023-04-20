@@ -30,23 +30,23 @@
             <form>
                 <h3>Registration form</h3>
                 <div class="form-group">
-                    <input type="text" placeholder="First name" class="form-control">
-                    <input type="text" placeholder="Last name" class="form-control">
+                    <input type="text" placeholder="First name" maxlength="25" class="form-control" required>
+                    <input type="text" placeholder="Last name" maxlength="25" class="form-control" required>
                 </div>
                 <div class="form-wrapper">
-                    <input type="email" placeholder="Email" class="form-control">
+                    <input type="email" placeholder="Email" class="form-control" required>
                 </div>
                 <div class="form-wrapper">
-                    <input type="text" placeholder="Profession" class="form-control">
+                    <input type="text" placeholder="Profession" maxlength="25" class="form-control" required>
                 </div>
               <div class="form-wrapper">
-                <input type="text" placeholder="About me" class="form-control">
+                <input type="text" placeholder="About me" maxlength="225" class="form-control" required>
               </div>
                 <div class="form-wrapper">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" placeholder="Password"  minlength="10" class="form-control" required>
                 </div>
                 <div class="form-wrapper">
-                    <input type="password" placeholder="Confirm password" class="form-control">
+                    <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required>
                 </div>
                 <button>Sign up</button>
             </form>
