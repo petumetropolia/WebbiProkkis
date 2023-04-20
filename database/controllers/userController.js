@@ -37,9 +37,10 @@ const postUser = async (req,res) => {
         name: req.body.name,
         surname: req.body.surname,
         email: req.body.email,
+        description: req.body.description,
         password: hashedPassword,
         filename: req.file.filename,
-        role: req.body.role,
+        //role: req.body.role,
     };
     try {
         const result = await userModel.insertUser(newUser);
