@@ -34,7 +34,7 @@ const insertUser = async (user) => {
             user.email,
             user.password,
             user.filename,
-            user.role
+            user.role,
         ]);
         return rows;
     } catch (e) {

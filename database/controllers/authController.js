@@ -4,7 +4,6 @@ const passport = require("passport");
 require("dotenv").config();
 
 const login = (req, res) => {
-    // TODO: add passport authenticate
     passport.authenticate('local', {session: false}, (err, user, info) => {
         if (err || !user) {
             console.log(info)
@@ -20,7 +19,7 @@ const login = (req, res) => {
             }
             // generate a signed son web token with the contents of user object and return it in the response
             const token = jwt.sign(user, process.env.JWT_SECRET);
-            // TODO: do you really need to include whole user to token payload
+
             return res.json({user, token});
         });
     })(req, res);

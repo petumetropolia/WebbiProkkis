@@ -8,13 +8,6 @@ const {postUser} = require('../controllers/userController');
 router
     .post("/login", login)
     .get('/logout', logout)
-    .post(
-        '/register',
-        body('name').isLength({min: 3}).trim().escape(),
-        body('email').isEmail().normalizeEmail(),
-        body('passwd').isLength({min: 8}).trim(),
-        postUser
-    );
-
+    .post('/register', postUser);
 
 module.exports = router;
