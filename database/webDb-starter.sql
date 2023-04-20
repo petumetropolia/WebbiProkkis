@@ -5,6 +5,7 @@ CREATE TABLE `Työntekijä`
   `sukunimi` text NOT NULL,
   `s-Posti` text NOT NULL,
   `kuvaus` text NOT NULL,
+  `filename` text NOT NULL,
   `salasana` text NOT NULL,
   PRIMARY KEY (`tyontekija_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -35,8 +36,8 @@ CREATE TABLE `MEDIA`
 (
   `media_id` INT NOT NULL,
   `tiedostonimi` text NOT NULL,
-  `tyontekija_id` INT NOT NULL,
-  `y-tunnus` INT NOT NULL,
+  `tyontekija_id` INT ,
+  `y-tunnus` INT ,
   PRIMARY KEY (`media_id`),
   FOREIGN KEY (`tyontekija_id`) REFERENCES `Työntekijä`(`tyontekija_id`),
   FOREIGN KEY (`y-tunnus`) REFERENCES `Työnantaja`(`y-tunnus`)

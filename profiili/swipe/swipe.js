@@ -24,11 +24,11 @@ const createUserCards = (users) => {
         img.classList.add('resp');
 
         const h3 = document.createElement('h3');
-        h3.innerHTML = user.name;
+        h3.innerHTML = user.etunimi;
 
 
         const p = document.createElement('p');
-        p.innerHTML = user.email;
+        p.innerHTML = user.kuvaus;
 
 
         li.appendChild(img);

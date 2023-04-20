@@ -33,13 +33,18 @@ const insertUser = async (user) => {
             user.surname,
             user.email,
             user.description,
+            user.filename,
             user.password,
         ]);
-        const sql2 =` INSERT INTO Media VALUES (?)`;
+       /* const sql2 =` INSERT INTO Media VALUES (?, ?, ?, ?)`;
         const [rows2] = await promisePool.query(sql2,[
+            null,
             user.filename,
-        ]);
-        return rows, rows2;
+            user.id,
+            null
+
+        ]); */
+        return rows;
     } catch (e) {
         console.error("error", e.message);
         throw new Error('sql insert user failed');
