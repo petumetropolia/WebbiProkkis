@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
 }
 .container{
     width: 100%;
@@ -22,7 +23,6 @@
     background: #fff;
     padding: 50px 60px 70px;
     text-align: center;
-    font-family: 'Dosis', sans-serif;
 }
 .form-box h1{
     font-size: 30px;
@@ -99,7 +99,6 @@ form p a{
 .footer{
     padding: 40px 0;
     background-color: #fff;
-    font-family: 'Dosis', sans-serif;
 }
 .footer .social{
     text-align: center;
