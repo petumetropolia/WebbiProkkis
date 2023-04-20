@@ -27,7 +27,7 @@
                 <label for="input-file">Choose a picture</label>
                 <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
             </div>
-            <form>
+            <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
                 <h3>Registration form</h3>
                 <div class="form-group">
                     <input type="text" placeholder="First name" maxlength="25" class="form-control" required>
@@ -48,7 +48,7 @@
                 <div class="form-wrapper">
                     <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required>
                 </div>
-                <button>Sign up</button>
+                <button type="submit">Sign up</button>
             </form>
         </div>
     </div>
