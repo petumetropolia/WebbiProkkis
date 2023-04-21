@@ -37,6 +37,7 @@ const postUser = async (req,res) => {
         name: req.body.name,
         surname: req.body.surname,
         email: req.body.email,
+        profession: req.body.profession,
         description: req.body.description,
         password: hashedPassword,
         filename: req.file.filename,

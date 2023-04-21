@@ -32,9 +32,10 @@ const insertUser = async (user) => {
             user.name,
             user.surname,
             user.email,
+            user.profession,
             user.description,
-            user.filename,
             user.password,
+            user.filename,
         ]);
        /* const sql2 =` INSERT INTO Media VALUES (?, ?, ?, ?)`;
         const [rows2] = await promisePool.query(sql2,[
