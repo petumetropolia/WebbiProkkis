@@ -24,11 +24,7 @@
 <div class="wrapper">
     <div class="inner">
 
-        <div class="profile-pic-div">
-            <img src="default.jpg" id="profile-pic">
-            <label for="input-file">Choose a picture</label>
-            <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
-        </div>
+
         <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm" onsubmit="checkForm(this)">
             <h3>Registration form</h3>
 
@@ -45,12 +41,19 @@
             <div class="form-wrapper">
                 <input type="text" placeholder="About me" maxlength="225" class="form-control" required name="description">
             </div>
-            <div class="form-wrapper">
-                <input type="password" placeholder="Password"  minlength="10" class="form-control" required name="password">
+            <div class="profile-pic-div">
+                <img src="default.jpg" id="profile-pic">
+                <label for="input-file">Choose a picture</label>
+                <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg" name="user">
             </div>
             <div class="form-wrapper">
-                <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required name="password2">
+                <input id="password" type="password" placeholder="Password"  minlength="10" class="form-control" required name="password" onkeyup="check()">
             </div>
+            <div class="form-wrapper">
+                <input id="password2" type="password" placeholder="Confirm password"  minlength="10" class="form-control" required name="password2" onkeyup="check()">
+                <span id="message"></span>
+            </div>
+
             <button type="submit">Sign up</button>
         </form>
     </div>
@@ -66,21 +69,16 @@
 
 
 
-        function checkForm(form) {
-
-
-
-            if (form.password.value == form.password2.value) {
-
-                form.password.focus();
-                return false;
-            }
-            if (form.password.value == form.username.value) {
-                alert("Error: Password must be different from Username!");
-                form.password.focus();
-                return false;
-            }
+    let check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('password2').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'not matching';
         }
+    }
 
 
 
