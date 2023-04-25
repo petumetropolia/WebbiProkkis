@@ -20,9 +20,12 @@ app.use((req,res,next) => {
 app.use(cors());
 
 // Serve example-ui
-app.use(express.static('registration'));
-app.use(express.static('kuvat'));
+
+
+app.use(express.static('registration', ));
+//app.use(express.static('kuvat'));
 app.use(express.static('profiili'));
+
 
 // Serve image files
 app.use('/uploads', express.static('uploads'));

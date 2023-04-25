@@ -9,7 +9,7 @@
     background-color: #fff;
 }
 body{
-    background-image: url("/kuvat/tausta.jpg");
+    background-image: url("/registration/tausta.jpg");
 }
 .contactUs{
     position: relative;
@@ -166,7 +166,7 @@ body{
 }
 @media (max-width: 991px){
     body{
-        background-image: url(/kuvat/tausta.jpg)
+        background-image: url(/registration/tausta.jpg)
     }
     .contactUs{
         padding: 20px;
@@ -194,7 +194,7 @@ body{
 }
 @media (max-width: 1200px){
     body{
-        background-image: url(/kuvat/tausta.jpg)
+        background-image: url(/registration/tausta.jpg)
     }
     .contactUs{
         padding: 20px;

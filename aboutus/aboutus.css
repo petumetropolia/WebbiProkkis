@@ -12,7 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/kuvat/tausta.jpg);
+    background-image: url(/registration/tausta.jpg);
 }
 .about .main img{
     width: 580px;
