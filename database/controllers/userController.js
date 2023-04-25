@@ -39,8 +39,9 @@ const postUser = async (req,res) => {
         email: req.body.email,
         profession: req.body.profession,
         description: req.body.description,
-        password: hashedPassword,
         filename: req.file.filename,
+        password: hashedPassword,
+
         //role: req.body.role,
     };
     try {
