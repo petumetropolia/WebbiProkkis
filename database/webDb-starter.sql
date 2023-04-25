@@ -18,7 +18,6 @@ CREATE TABLE `Työnantaja`
 (
   `y-tunnus` INT NOT NULL,
   `nimi` text NOT NULL,
-  `kuvaus` text NOT NULL,
   `sähköposti` text NOT NULL,
   `kuvaus` text NOT NULL,
   `filename` text NOT NULL,
