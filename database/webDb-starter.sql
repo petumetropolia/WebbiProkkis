@@ -4,6 +4,7 @@ CREATE TABLE `Työntekijä`
   `etunimi` text NOT NULL,
   `sukunimi` text NOT NULL,
   `s-Posti` text NOT NULL,
+  `ammatti` text NOT NULL,
   `kuvaus` text NOT NULL,
   `filename` text NOT NULL,
   `salasana` text NOT NULL,
@@ -19,6 +20,10 @@ CREATE TABLE `Työnantaja`
   `nimi` text NOT NULL,
   `kuvaus` text NOT NULL,
   `sähköposti` text NOT NULL,
+  `kuvaus` text NOT NULL,
+  `filename` text NOT NULL,
+  `salasana` text NOT NULL,
+  `ammatti` text NOT NULL,
   PRIMARY KEY (`Y-tunnus`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

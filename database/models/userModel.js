@@ -26,15 +26,16 @@ const getUserById = async (id) => {
 
 const insertUser = async (user) => {
     try {
-        const sql =` INSERT INTO Työntekijä VALUES (?, ?, ?, ?, ?, ?, ?)`;
+        const sql =` INSERT INTO Työntekijä VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
         const [rows] = await promisePool.query(sql,[
             null,
             user.name,
             user.surname,
             user.email,
+            user.profession,
             user.description,
-            user.filename,
             user.password,
+            user.filename,
         ]);
        /* const sql2 =` INSERT INTO Media VALUES (?, ?, ?, ?)`;
         const [rows2] = await promisePool.query(sql2,[

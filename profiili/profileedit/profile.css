@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background: url(/kuvat/tausta.jpg);
+    background: url(tausta.jpg);
     background-size: cover;
     font-family: 'Dosis', sans-serif;
     color: #333;

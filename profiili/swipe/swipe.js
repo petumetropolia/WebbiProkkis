@@ -20,7 +20,7 @@ const createUserCards = (users) => {
 
         const img = document.createElement('img');
         img.src = url + '/uploads/' + user.filename;
-        img.alt = user.name;
+        img.alt = user.etunimi;
         img.classList.add('resp');
 
         const h3 = document.createElement('h3');
@@ -89,7 +89,7 @@ const getUser = async () => {
     try {
         const response = await fetch(url + '/user');
         const users = await response.json();
-        console.log(users.filename);
+        console.log(users);
         createUserCards(users);
     } catch (e) {
         console.log(e.message);
