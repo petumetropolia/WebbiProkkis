@@ -32,7 +32,7 @@ const getUser =  async (req, res) => {
 const postUser = async (req,res) => {
     console.log("posting user", req.body, req.file);
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+    const password = await bcrypt.hash(req.body.password, salt);
     const newUser = {
         name: req.body.name,
         surname: req.body.surname,
@@ -40,8 +40,7 @@ const postUser = async (req,res) => {
         profession: req.body.profession,
         description: req.body.description,
         filename: req.file.filename,
-        password: hashedPassword,
-
+        password: password,
         //role: req.body.role,
     };
     try {
@@ -79,5 +78,9 @@ const deleteUser = async (req,res) => {
     }
 }
 
-const userController = {getUserList,getUser,postUser,putUser,deleteUser};
+const checkToken = (req, res) => {
+    res.json({user: req.user});
+};
+
+const userController = {getUserList, getUser, postUser, putUser, deleteUser, checkToken};
 module.exports = userController;

@@ -12,14 +12,14 @@ require("dotenv").config();
 // local strategy for username password login
 passport.use(
     new Strategy(async (username, password, done) => {
-        console.log('login credentials', username, password);
+        console.log('login credentials',username ,password);
         try {
             const [user] = await getUserLogin(username);
             console.log('Local strategy', user); // result is binary row
             if (user === undefined) {
                 return done(null, false, {message: 'Incorrect email.'});
             }
-            const loginOK = await bcrypt.compare(password, user.password);
+            const loginOK = await bcrypt.compare(password, user.salasana);
             if (!loginOK) {
                 return done(null, false, {message: 'Incorrect password.'});
             }
@@ -41,7 +41,7 @@ passport.use(
             // Get user data from DB using userModel
             console.log('user from token', jwtPayload);
             try {
-                const user = await getUserById(jwtPayload.user_id);
+                const user = await getUserById(jwtPayload.tyontekija_id);
                 return done(null, user);
             } catch (error) {
                 return done(error);
