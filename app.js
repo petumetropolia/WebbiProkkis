@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const userRoute = require('./database/routes/userRoute');
 const passport = require('./utils/passport');
+const tyonantajaRoute = require('./database/routes/tyonantajaRoute');
 const authRoute = require('./database/routes/authRoute');
 const session = require('express-session');
 const app = express();
@@ -40,5 +41,6 @@ app.use('/auth', authRoute);
 
 
 app.use('/user', userRoute);
+app.use('/employer', tyonantajaRoute);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

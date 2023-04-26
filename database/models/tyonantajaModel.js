@@ -30,11 +30,12 @@ const insertUser = async (user) => {
         const [rows] = await promisePool.query(sql,[
             user.yTunnus,
             user.name,
-            user.surname,
             user.email,
-            user.password,
+            user.description,
             user.filename,
-            user.role
+            user.password,
+            user.profession,
+
         ]);
         return rows;
     } catch (e) {
