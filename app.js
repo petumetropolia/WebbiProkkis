@@ -28,6 +28,8 @@ app.use(express.static('registration', ));
 app.use(express.static('profiili'));
 
 
+
+
 // Serve image files
 app.use('/uploads', express.static('uploads'));
 

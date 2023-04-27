@@ -7,6 +7,11 @@ let nope = document.getElementById('nope');
 let love = document.getElementById('love');
 
 
+const userInfo = (employers) =>{
+    kayttaja.innerHTML = employers[0].etunimi;
+    console.log(employers[0].nimi);
+}
+
 
 
 const createUserCards = (users) => {
@@ -84,13 +89,26 @@ const createUserCards = (users) => {
         });
     });
 };
-// AJAX call
-const getUser = async () => {
+// AJAX call to get employer data from database
+const getEmployer = async () => {
     try {
         const response = await fetch(url + '/employer');
         const users = await response.json();
         console.log(users);
         createUserCards(users);
+    } catch (e) {
+        console.log(e.message);
+    }
+};
+getEmployer();
+
+// Ajax call to get employee data from database
+const getUser = async () => {
+    try {
+        const response = await fetch(url + '/user');
+        const users = await response.json();
+        console.log(users);
+        userInfo(users);
     } catch (e) {
         console.log(e.message);
     }
