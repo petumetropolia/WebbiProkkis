@@ -5,6 +5,7 @@ const {body} = require('express-validator');
 const multer = require('multer');
 const { login, logout } = require("../controllers/authController");
 const {postUser} = require('../controllers/userController');
+const {postTyonantaja} = require('../controllers/tyonantajaController');
 
 
 const fileFilter = (req, file, cb) => {
@@ -23,6 +24,16 @@ const upload = multer({dest: 'uploads', fileFilter});
 router
     .post("/login", login)
     .get('/logout', logout)
-    .post('/register',upload.single('user'), postUser);
+    //.post('/register',upload.single('user'), postUser)
+    .post('/register', upload.single('user'), (req, res) => {
+        if (req.file) {
+            // register as user
+            postUser(req, res);
+        } else {
+            // register as tyonantaja
+            postTyonantaja(req, res);
+        }
+    });
+
 
 module.exports = router;

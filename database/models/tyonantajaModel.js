@@ -2,7 +2,7 @@
 const pool = require("../Db");
 const promisePool = pool.promise();
 
-const getAllUsers = async () => {
+const getAllTyonantaja = async () => {
     try {
         const sql =`SELECT * FROM Työnantaja ` ;
         const [rows] = await promisePool.query(sql);
@@ -13,7 +13,7 @@ const getAllUsers = async () => {
     }
 };
 
-const getUserById = async (id) => {
+const getTyonantajaById = async (id) => {
     try {
         const sql =` SELECT Työnantaja. * from Työnantaja where y-tunnus=?`;
         const [rows] = await promisePool.query(sql,[id]);
@@ -24,7 +24,7 @@ const getUserById = async (id) => {
     }
 };
 
-const insertUser = async (user) => {
+const insertTyonantaja = async (user) => {
     try {
         const sql =` INSERT INTO Työnantaja VALUES (?, ?, ?, ?, ?, ?, ?)`;
         const [rows] = await promisePool.query(sql,[
@@ -45,7 +45,7 @@ const insertUser = async (user) => {
 };
 
 
-const modifyUser = async (user) => {
+const modifyTyonantaja = async (user) => {
     try {
         const sql =`UPDATE wop_user SET name=?, surname=?, email=?, password=?, filename=?,
         where user_id=?`;
@@ -56,7 +56,6 @@ const modifyUser = async (user) => {
             user.password,
             user.filename,
             user.id
-
         ]);
         return rows;
     } catch (e) {
@@ -66,7 +65,7 @@ const modifyUser = async (user) => {
 };
 
 
-const deleteUser = async (id) => {
+const deleteTyonantaja = async (id) => {
     try {
         const sql =`DELETE FROM wop_user where user_id=?`;
         const [rows] = await promisePool.query(sql,[id]);
@@ -77,10 +76,24 @@ const deleteUser = async (id) => {
     }
 };
 
+const getTyonantajaLogin = async (email) => {
+    try {
+        console.log(email);
+        const [rows] = await promisePool.execute(
+            'SELECT * FROM Työntekijä WHERE `sähköposti` = ?;',
+            [email]);
+        console.log('get user login rows', rows);
+        return rows;
+    } catch (e) {
+        console.log('error', e.message);
+    }
+};
+
 module.exports = {
-    getAllUsers,
-    getUserById,
-    insertUser,
-    modifyUser,
-    deleteUser
+    getAllTyonantaja,
+    getTyonantajaById,
+    insertTyonantaja,
+    modifyTyonantaja,
+    deleteTyonantaja,
+    getTyonantajaLogin,
 };

@@ -45,11 +45,12 @@ const postUser = async (req,res) => {
     };
     try {
         const result = await userModel.insertUser(newUser);
-        res.status(201).json({message: "new user added"})
+        res.redirect('/swipe/swipe.html');
     }catch (error){
         console.error("error",error.message);
         res.status(500).json({error: 500, message: error.message});
     }
+
 };
 
 const putUser = async (req,res) => {
