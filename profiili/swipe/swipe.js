@@ -6,6 +6,13 @@ let allCards = document.querySelectorAll('.tinder--card');
 let nope = document.getElementById('nope');
 let love = document.getElementById('love');
 
+let kayttaja = document.getElementById("kayttaja");
+
+const userInfo = (employers) =>{
+    kayttaja.innerHTML = employers[0].sähköposti;
+    console.log(employers[0].nim);
+}
+
 
 
 
@@ -84,7 +91,7 @@ const createUserCards = (users) => {
         });
     });
 };
-// AJAX call
+// AJAX call to get information of employees
 const getUser = async () => {
     try {
         const response = await fetch(url + '/user');
@@ -97,6 +104,18 @@ const getUser = async () => {
 };
 getUser();
 
+// AJAX call to get information of employers
+const getEmployer = async () => {
+    try {
+        const response = await fetch(url + '/employer');
+        const employers = await response.json();
+        console.log(employers);
+        userInfo(employers);
+    } catch (e) {
+        console.log(e.message);
+    }
+};
+getEmployer();
 
 
 
