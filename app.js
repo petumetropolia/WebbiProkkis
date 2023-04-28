@@ -39,7 +39,7 @@ app.use(passport.initialize());
 app.use('/auth', authRoute);
 app.use('/user', passport.authenticate('jwt', {session: false}), userRoute);
 
-app.use('/employer', userRoute);
+app.use('/employer', tyonantajaRoute);
 //app.use('/employer', passport.authenticate('jwt', {session: false}),tyonantajaRoute);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

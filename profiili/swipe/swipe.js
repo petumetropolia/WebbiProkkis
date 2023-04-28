@@ -7,8 +7,6 @@ let nope = document.getElementById('nope');
 let love = document.getElementById('love');
 
 
-
-
 const createUserCards = (users) => {
     console.log(users);
     const ul = document.querySelector('.tinder--cards');
