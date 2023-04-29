@@ -91,7 +91,7 @@ form p a{
     transition: background 1s;
 }
 .input-group{
-    height: 280px;
+    height: 220px;
 }
 .btn-field button.disable{
     background: #eaeaea;

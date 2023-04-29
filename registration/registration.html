@@ -23,14 +23,6 @@
             <h1 id="title">Sign up</h1>
             <form>
                 <div class="input-group">
-                    <div class="input-field" id="nameField">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="First name" name="name" required>
-                    </div>
-                    <div class="input-field" id="nameField1">
-                        <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Last name" name="name" required>
-                    </div>
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
                         <input autocomplete="off" type="email" placeholder="Email" name="email" minlength="8" required>
@@ -58,27 +50,6 @@
         </div>
     </div>
     <script>
-        let signupBtn = document.getElementById("signupBtn");
-        let signinBtn = document.getElementById("signinBtn");
-        let nameField = document.getElementById("nameField");
-        let nameField1 = document.getElementById("nameField1");
-        let title = document.getElementById("title");
-
-        signinBtn.onclick = function(){
-            nameField.style.maxHeight = "0";
-            nameField1.style.maxHeight = "0";
-            title.innerHTML = "Sign in";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-        }
-
-        signupBtn.onclick = function(){
-            nameField.style.maxHeight = "60px";
-            nameField1.style.maxHeight = "60px";
-            title.innerHTML = "Sign up";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
-        }
         function myFunction(){
             let x = document.getElementById("myInput");
             let y = document.getElementById("hide1");

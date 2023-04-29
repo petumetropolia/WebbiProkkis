@@ -12,54 +12,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-          <div class="logo">
-            <img src="wifi.png" alt="Logo" />
-            <h3>JobSeeker</h3>
-          </div>
+<div class="wrapper">
+    <div class="inner">
+        <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
+		        <div class="profile-pic-div">
+            <img src="default.jpg" id="profile-pic">
+            <label for="input-file">Choose a picture</label>
+            <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
         </div>
-      </header>
-    <div class="wrapper">
-        <div class="inner">
-            <div class="profile-pic-div">
-                <img src="default.jpg" id="profile-pic">
-                <label for="input-file">Choose a picture</label>
-                <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
+            <h3>Registration form</h3>
+            <div class="form-group">
+                <input type="text" placeholder="First name" maxlength="25" class="form-control" required>
+                <input type="text" placeholder="Last name" maxlength="25" class="form-control" required>
             </div>
-            <form action="http://localhost:3000/user" method="post" name="form" enctype="multipart/form-data" id="addUserForm">
-                <h3>Registration form</h3>
-                <div class="form-group">
-                    <input type="text" placeholder="Name" maxlength="25" class="form-control" required>
-                    <input type="text" placeholder="Business ID" maxlength="25" class="form-control" required>
-                </div>
-                <div class="form-wrapper">
-                    <input type="email" placeholder="Email" class="form-control" required>
-                </div>
-                <div class="form-wrapper">
-                    <input type="text" placeholder="Profession" maxlength="25" class="form-control" required>
-                </div>
-              <div class="form-wrapper">
-                <input type="text" placeholder="About us" maxlength="225" class="form-control" required>
-              </div>
-                <div class="form-wrapper">
-                    <input type="password" placeholder="Password"  minlength="10" class="form-control" required>
-                </div>
-                <div class="form-wrapper">
-                    <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required>
-                </div>
-                <button type="submit">Sign up</button>
-            </form>
-        </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" class="form-control" required>
+                <input type="text" placeholder="Profession" maxlength="25" class="form-control" required>
+            </div>
+            <div class="form-wrapper">
+                <input type="text" placeholder="About me" maxlength="225" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password"  minlength="10" class="form-control" required>
+                <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required>
+            </div>
+            <button type="submit">Sign up</button>
+        </form>
     </div>
-    <script>
+</div>
+<script>
 
-        let profilePic = document.getElementById("profile-pic");
-        let inputFile = document.getElementById("input-file");
+    let profilePic = document.getElementById("profile-pic");
+    let inputFile = document.getElementById("input-file");
 
-        inputFile.onchange = function(){
-            profilePic.src = URL.createObjectURL(inputFile.files[0]);
-        }
-    </script>
+    inputFile.onchange = function(){
+        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+    }
+</script>
 </body>
 </html>
