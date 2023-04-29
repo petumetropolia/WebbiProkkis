@@ -2,8 +2,8 @@
 const url = 'http://localhost:3000'; // change url when uploading to server
 
 // select existing html elements
-const loginForm = document.querySelector('#login-form');
-const addUserForm = document.querySelector('#addUserForm');
+const loginForm = document.getElementById('login-form');
+const addUserForm = document.getElementById('addUserForm');
 
 // login
 loginForm.addEventListener('submit', async (evt) => {
@@ -26,7 +26,7 @@ loginForm.addEventListener('submit', async (evt) => {
         // save token
         sessionStorage.setItem('token', json.token);
         sessionStorage.setItem('user', JSON.stringify(json.user));
-        location.href = './swipe/swipe.html';
+        location.href = '/swipe/swipe.html';
     }
 });
 

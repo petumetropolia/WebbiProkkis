@@ -83,20 +83,21 @@ const createUserCards = (users) => {
     });
 };
 // AJAX call
-const token = localStorage.getItem('token'); // retrieve token from local storage or wherever it is stored
+const token = sessionStorage.getItem('token'); // retrieve token from local storage or wherever it is stored
 
 const getUser = async () => {
     try {
-        const response = await fetch(url + '/user/token', {
+        const response = await fetch(url + '/user', {
             headers: {
                 'Authorization': 'Bearer ' + token // include token in headers
             }
         });
+        console.log(response);
         const users = await response.json();
         console.log(users);
         createUserCards(users);
-    } catch (e) {
-        console.log(e.message);
+    } catch (error) {
+        console.log(error.message);
     }
 };
 getUser();
