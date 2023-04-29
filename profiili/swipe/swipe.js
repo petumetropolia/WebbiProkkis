@@ -1,4 +1,6 @@
 'use strict';
+
+
 const url = 'http://localhost:3000'; // change url when uploading to server
 
 let tinderContainer = document.querySelector('.tinder');
@@ -7,11 +9,10 @@ let nope = document.getElementById('nope');
 let love = document.getElementById('love');
 
 let kayttaja = document.getElementById("kayttaja");
+const kirjautunut = JSON.parse(sessionStorage.getItem('user'));
+kayttaja.innerHTML = kirjautunut.etunimi;
 
-const userInfo = (employers) =>{
-    kayttaja.innerHTML = employers[0].sähköposti;
-    console.log(employers[0].nim);
-}
+
 
 
 const createUserCards = (users) => {
@@ -91,6 +92,7 @@ const createUserCards = (users) => {
 };
 
 const getUser = async () => {
+    const token = sessionStorage.getItem('token'); // retrieve token from local storage or wherever it is stored
     try {
         const response = await fetch(url + '/user', {
             headers: {
@@ -107,6 +109,9 @@ const getUser = async () => {
 };
 getUser();
 
+
+
+/*
 // AJAX call to get information of employers
 const getEmployer = async () => {
     try {
@@ -118,7 +123,7 @@ const getEmployer = async () => {
         console.log(e.message);
     }
 };
-getEmployer();
+getEmployer(); */
 
 
 function initCards(card, index) {
