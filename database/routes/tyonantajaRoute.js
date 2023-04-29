@@ -12,6 +12,8 @@ router.route('/')
     .post(upload.single('employer'),tyonantajaController.postEmployer)
     .put(tyonantajaController.putEmployer)
 
+router.get('/token', tyonantajaController.checkToken);
+
 router.route('/:employerId')
     .get(tyonantajaController.getEmployer)
     .delete(tyonantajaController.deleteEmployer)

@@ -14,8 +14,6 @@ const userInfo = (employers) =>{
 }
 
 
-
-
 const createUserCards = (users) => {
     console.log(users);
     const ul = document.querySelector('.tinder--cards');
@@ -91,15 +89,20 @@ const createUserCards = (users) => {
         });
     });
 };
-// AJAX call to get information of employees
+
 const getUser = async () => {
     try {
-        const response = await fetch(url + '/user');
+        const response = await fetch(url + '/user', {
+            headers: {
+                'Authorization': 'Bearer ' + token // include token in headers
+            }
+        });
+        console.log(response);
         const users = await response.json();
         console.log(users);
         createUserCards(users);
-    } catch (e) {
-        console.log(e.message);
+    } catch (error) {
+        console.log(error.message);
     }
 };
 getUser();
@@ -116,10 +119,6 @@ const getEmployer = async () => {
     }
 };
 getEmployer();
-
-
-
-
 
 
 function initCards(card, index) {

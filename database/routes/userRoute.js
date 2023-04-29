@@ -10,10 +10,10 @@ router.route('/')
     .post(upload.single('user'),userController.postUser)
     .put(userController.putUser)
 
+router.get('/token', userController.checkToken);
 
 router.route('/:userId')
     .get(userController.getUser)
     .delete(userController.deleteUser)
-
 
 module.exports = router;

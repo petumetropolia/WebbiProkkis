@@ -1,11 +1,13 @@
 'use strict';
 const tyonantajaModel = require('../models/tyonantajaModel');
+const bcrypt = require('bcryptjs');
+const userModel = require("../models/userModel");
 //const user = userModel.user;
 
 
 const getEmployerList = async (req, res) => {
     try {
-        const users = await tyonantajaModel.getAllUsers();
+        const users = await tyonantajaModel.getAllTyonantaja();
         res.json(users);
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -14,7 +16,7 @@ const getEmployerList = async (req, res) => {
 
 
 const getEmployer =  async (req, res) => {
-    const userId = Number(req.params.userId);
+    const userId = Number(req.params.tyonantaja_id);
     if(!Number.isInteger(userId)) {
         res.status(400).json({error: 500, message: 'invalid id'});
         return;
@@ -30,18 +32,27 @@ const getEmployer =  async (req, res) => {
     }
 };
 const postEmployer = async (req,res) => {
-
     console.log("posting user", req.body, req.file);
-    const newUser = req.body;
-    newUser.filename = req.file.filename;
+    const salt = await bcrypt.genSalt(10);
+    const password = await bcrypt.hash(req.body.password, salt);
+    const newTyonantaja = {
+        yTunnus: req.body.yTunnus,
+        name: req.body.name,
+        email: req.body.email,
+        description: req.body.description,
+        filename: req.file.filename,
+        password: password,
+        profession: req.body.profession,
+        //role: req.body.role,
+    };
     try {
-        const result = await tyonantajaModel.insertUser(newUser);
+        const result = await tyonantajaModel.insertTyonantaja(newTyonantaja);
         res.status(201).json({message: "new user added"})
     }catch (error){
         console.error("error",error.message);
         res.status(500).json({error: 500, message: error.message});
     }
-}
+};
 
 const putEmployer = async (req,res) => {
     const user = req.body;
@@ -69,5 +80,9 @@ const deleteEmployer = async (req,res) => {
     }
 }
 
-const tyonantajaController = {getEmployerList,getEmployer,postEmployer,putEmployer,deleteEmployer};
+const checkToken = (req, res) => {
+    res.json({user: req.user});
+};
+
+const tyonantajaController = {getEmployerList,getEmployer,postEmployer,putEmployer,deleteEmployer,checkToken};
 module.exports = tyonantajaController;

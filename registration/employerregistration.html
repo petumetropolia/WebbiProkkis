@@ -21,7 +21,7 @@
     <div class="container">
         <div class="form-box">
             <h1 id="title">Sign up</h1>
-            <form>
+            <form action="http://localhost:3000/auth/login" method="post" name="form">
                 <div class="input-group">
                     <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user"></i>
@@ -50,10 +50,10 @@
                     <form>
                     <button type="button" id="signupBtn">Sign up</button>
                 </form>
-                    <button type="button" id="signinBtn" class="disable">Sign in</button>
+                    <button type="submit" id="signinBtn" class="disable">Sign in</button>
                 </div>
                 <br>
-                <p><a href="/passwordreset.html">Forgot your password?</a></p>
+
             </form>
         </div>
     </div>
@@ -97,7 +97,7 @@
         }
 
         document.getElementById("signupBtn").onclick = function () {
-        location.href = "/profileedit/profile.html";
+
     };
     </script>
    <section class="footer">

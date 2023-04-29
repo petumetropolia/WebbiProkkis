@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 .container{
     width: 100%;
@@ -51,7 +52,6 @@
     transition: max-height 0.5s;
     overflow: hidden;
     position: relative;
-    
 }
 input {
     width: 100%;
@@ -60,10 +60,12 @@ input {
     outline: 0;
     padding: 18px 15px;
     font-family: 'Dosis', sans-serif;
+
 }
 .input-field i{
     margin-left: 15px;
     color: #999;
+
 }
 form p{
     text-align: center;
@@ -77,6 +79,7 @@ form p a{
     width: 100%;
     display: flex;
     justify-content: space-between;
+
 }
 .btn-field button{
     flex-basis: 48%;
@@ -90,7 +93,7 @@ form p a{
     transition: background 1s;
 }
 .input-group{
-    height: 280px;
+    height: 220px;
 }
 .btn-field button.disable{
     background: #eaeaea;
@@ -171,14 +174,14 @@ header{
     justify-content: space-between;
     background: transparent;
     padding: 28px 12%;
-    
+
 }
 .logo{
     display: flex;
     align-items: center;
     margin-right: 3px;
     height: 40px;
-    
+
 }
 .logotext{
     font-size: 25px;
@@ -186,6 +189,5 @@ header{
     font-weight: 500;
     display: flex;
     align-items: center;
-   
-}
 
+}

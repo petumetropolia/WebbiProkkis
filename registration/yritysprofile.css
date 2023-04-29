@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background: url(tausta.jpg);
+    background: url(/profiili/profileedit/tausta.jpg);
     background-size: cover;
     font-family: 'Dosis', sans-serif;
     color: #333;
