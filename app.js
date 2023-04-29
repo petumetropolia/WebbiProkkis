@@ -23,17 +23,18 @@ app.use(cors());
 // Serve example-ui
 
 
+
 app.use(express.static('registration'));
 //app.use(express.static('kuvat'));
 app.use(express.static('profiili'));
 app.use(express.static('kuvat'));
+
+
 app.use(express.static('home'));
 app.use(express.static('aboutus'));
 app.use(express.static('contactus'));
 app.use(express.static('terms'));
 app.use(express.static('privacypolicy'));
-
-
 
 
 // Serve image files
