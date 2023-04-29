@@ -26,6 +26,12 @@ app.use(cors());
 app.use(express.static('registration', ));
 //app.use(express.static('kuvat'));
 app.use(express.static('profiili'));
+app.use(express.static('kuvat'));
+app.use(express.static('home'));
+app.use(express.static('aboutus'));
+app.use(express.static('contactus'));
+app.use(express.static('terms'));
+app.use(express.static('privacypolicy'));
 
 
 // Serve image files
@@ -36,10 +42,11 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(passport.initialize());
+
 app.use('/auth', authRoute);
 app.use('/user', passport.authenticate('jwt', {session: false}), userRoute);
-
-app.use('/employer', tyonantajaRoute);
-//app.use('/employer', passport.authenticate('jwt', {session: false}),tyonantajaRoute);
+//app.use('/user', userRoute);
+//app.use('/employer', tyonantajaRoute);
+app.use('/employer', passport.authenticate('jwt', {session: false}),tyonantajaRoute);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

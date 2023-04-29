@@ -53,7 +53,7 @@ passport.use(
     )
 );
 
-passport.use(
+/*passport.use(
     new Strategy(async (username, password, done) => {
         console.log("työnantaja login credentials", username, password);
         try {
@@ -77,9 +77,9 @@ passport.use(
             return done(err);
         }
     })
-);
+);*/
 
-passport.use(
+/*passport.use(
     new JWTStrategy(
         {
             jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
@@ -98,6 +98,6 @@ passport.use(
             // return done(null, jwtPayload);
         }
     )
-);
+);*/
 
 module.exports = passport;

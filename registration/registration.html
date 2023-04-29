@@ -20,15 +20,13 @@
     </div></header>
 <div class="container">
     <div class="form-box">
-        <h1 id="title">Sign up</h1>
-        <form action="http://localhost:3000/auth/login" method="post" name="form">
+        <h1 id="title">Sign in</h1>
+        <form id="login-form" action="http://localhost:3000/auth/login" method="post" name="form">
             <div class="input-group">
-
                 <div class="input-field">
                     <i class="fa-solid fa-envelope"></i>
                     <input autocomplete="off" type="email" placeholder="Email" name="username" minlength="8" required>
                 </div>
-
                 <div class="input-field">
                     <i class="fa-solid fa-lock"></i>
                     <input type="password" placeholder="Password" id="myInput" name="password" minlength="8" required>
@@ -37,35 +35,20 @@
                         <i id="hide2" class="fa fa-eye-slash"></i>
                         </span>
                 </div>
-
             </div>
             <div class="btn-field">
                 <form>
                     <button type="button" id="signupBtn">Sign up</button>
                 </form>
-                <button type="submit" id="signinBtn" class="disable" onclick="window.location.href = 'http://localhost:3000/swipe/swipe.html';">Sign in</button>
+                <button type="submit" id="signinBtn">Sign in</button>
             </div>
             <br>
             <p><a href="passwordreset.html">Forgot your password?</a></p>
         </form>
     </div>
 </div>
+
 <script>
-    let signupBtn = document.getElementById("signupBtn");
-    let signinBtn = document.getElementById("signinBtn");
-    let title = document.getElementById("title");
-
-    signinBtn.onclick = function(){
-        title.innerHTML = "Sign in";
-        signupBtn.classList.add("disable");
-        signinBtn.classList.remove("disable");
-    }
-
-    signupBtn.onclick = function(){
-        title.innerHTML = "Sign up";
-        signupBtn.classList.remove("disable");
-        signinBtn.classList.add("disable");
-    }
     function myFunction(){
         let x = document.getElementById("myInput");
         let y = document.getElementById("hide1");
@@ -115,5 +98,7 @@
         JobSeeker &copy;2023
     </p>
 </section>
+<script src="serialize.js"></script>
+<script src="login.js"></script>
 </body>
-</html>
+

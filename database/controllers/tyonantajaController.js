@@ -7,7 +7,7 @@ const userModel = require("../models/userModel");
 
 const getEmployerList = async (req, res) => {
     try {
-        const users = await tyonantajaModel.getAllUsers();
+        const users = await tyonantajaModel.getAllTyonantaja();
         res.json(users);
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -16,7 +16,7 @@ const getEmployerList = async (req, res) => {
 
 
 const getEmployer =  async (req, res) => {
-    const userId = Number(req.params.userId);
+    const userId = Number(req.params.tyonantaja_id);
     if(!Number.isInteger(userId)) {
         res.status(400).json({error: 500, message: 'invalid id'});
         return;
