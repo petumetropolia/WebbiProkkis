@@ -34,6 +34,8 @@ app.use(express.static('terms'));
 app.use(express.static('privacypolicy'));
 
 
+
+
 // Serve image files
 app.use('/uploads', express.static('uploads'));
 
