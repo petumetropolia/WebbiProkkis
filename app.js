@@ -24,11 +24,13 @@ app.use(cors());
 
 
 app.use(express.static('registration', ));
-//app.use(express.static('kuvat'));
+app.use(express.static('kuvat'));
 app.use(express.static('profiili'));
-
-
-
+app.use(express.static('home'));
+app.use(express.static('aboutus'));
+app.use(express.static('contactus'));
+app.use(express.static('terms'));
+app.use(express.static('privacypolicy'));
 
 // Serve image files
 app.use('/uploads', express.static('uploads'));
