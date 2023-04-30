@@ -6,9 +6,12 @@ let allCards = document.querySelectorAll('.tinder--card');
 let nope = document.getElementById('nope');
 let love = document.getElementById('love');
 
+document.getElementById("logo").onclick = function () {
+    location.href = "/home.html";
+};
 
 const userInfo = (employers) =>{
-    kayttaja.innerHTML = employers[0].etunimi;
+    kayttaja.innerHTML = employers[0].nimi;
     console.log(employers[0].nimi);
 }
 
@@ -25,11 +28,11 @@ const createUserCards = (users) => {
 
         const img = document.createElement('img');
         img.src = url + '/uploads/' + user.filename;
-        img.alt = user.nimi;
+        img.alt = user.etunimi;
         img.classList.add('resp');
 
         const h3 = document.createElement('h3');
-        h3.innerHTML = user.nimi;
+        h3.innerHTML = user.etunimi;
 
 
         const p = document.createElement('p');
@@ -88,29 +91,35 @@ const createUserCards = (users) => {
             }
         });
     });
-};
+};/*
 // AJAX call to get employer data from database
 const getEmployer = async () => {
     try {
         const response = await fetch(url + '/employer');
         const users = await response.json();
-        console.log(users);
-        createUserCards(users);
+        //console.log(users);
+       // createUserCards(users);
     } catch (e) {
         console.log(e.message);
     }
 };
-getEmployer();
+getEmployer();*/
 
 // Ajax call to get employee data from database
 const getUser = async () => {
+    const token = sessionStorage.getItem('token'); // retrieve token from sessionstorage
     try {
-        const response = await fetch(url + '/user');
+        const response = await fetch(url + '/user', {
+            headers: {
+                'Authorization': 'Bearer ' + token // include token in headers
+            }
+        });
+        console.log(response);
         const users = await response.json();
         console.log(users);
-        userInfo(users);
-    } catch (e) {
-        console.log(e.message);
+        createUserCards(users);
+    } catch (error) {
+        console.log(error.message);
     }
 };
 getUser();

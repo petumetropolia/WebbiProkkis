@@ -17,7 +17,7 @@
 </head>
 <body>
 <header>
-    <div class="logotext">JobSeeker
+    <div id="logo" class="logotext">JobSeeker
         <img src="wifi.png" class="logo">
     </div></header>
 <div class="container">
@@ -45,11 +45,14 @@
                 <button type="button" id="signinBtn" class="disable">Sign in</button>
             </div>
             <br>
-            <p><a href="/registration/passwordreset.html">Forgot your password?</a></p>
+            <p><a href="/passwordreset.html">Forgot your password?</a></p>
         </form>
     </div>
 </div>
 <script>
+    document.getElementById("logo").onclick = function () {
+        location.href = "/home.html";
+    };
     function myFunction(){
         let x = document.getElementById("myInput");
         let y = document.getElementById("hide1");
@@ -68,7 +71,10 @@
     }
 
     document.getElementById("signupBtn").onclick = function () {
-        location.href = "/profiili/profileedit/profile.html";
+        location.href = "/yritysprofile.html";
+    };
+    document.getElementById("signinBtn").onclick = function () {
+        location.href = "/swipe/tyonAntajaSwipe.html";
     };
 </script>
 <section class="footer">

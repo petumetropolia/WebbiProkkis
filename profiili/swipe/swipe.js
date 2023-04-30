@@ -12,6 +12,9 @@ let kayttaja = document.getElementById("kayttaja");
 const kirjautunut = JSON.parse(sessionStorage.getItem('user'));
 kayttaja.innerHTML = kirjautunut.etunimi;
 
+document.getElementById("logo").onclick = function () {
+    location.href = "/home.html";
+};
 
 
 
@@ -26,11 +29,11 @@ const createUserCards = (users) => {
 
         const img = document.createElement('img');
         img.src = url + '/uploads/' + user.filename;
-        img.alt = user.etunimi;
+        img.alt = user.nimi;
         img.classList.add('resp');
 
         const h3 = document.createElement('h3');
-        h3.innerHTML = user.etunimi;
+        h3.innerHTML = user.nimi;
 
 
         const p = document.createElement('p');
@@ -90,7 +93,39 @@ const createUserCards = (users) => {
         });
     });
 };
+const getUser = async () => {
+    const token = sessionStorage.getItem('token'); // retrieve token from sessionstorage
+    try {
+        const response = await fetch(url + '/employer', {
+            headers: {
+                'Authorization': 'Bearer ' + token // include token in headers
+            }
+        });
+        console.log(response);
+        const users = await response.json();
+        console.log(users);
+        createUserCards(users);
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+getUser();
 
+/*
+// AJAX call to get employer data from database
+const getEmployer = async () => {
+    try {
+        const response = await fetch(url + '/employer');
+        const users = await response.json();
+        //console.log(users);
+         createUserCards(users);
+    } catch (e) {
+        console.log(e.message);
+    }
+};
+getEmployer();
+*/
+/*
 const getUser = async () => {
     const token = sessionStorage.getItem('token'); // retrieve token from local storage or wherever it is stored
     try {
@@ -109,7 +144,7 @@ const getUser = async () => {
 };
 getUser();
 
-
+*/
 
 /*
 // AJAX call to get information of employers
