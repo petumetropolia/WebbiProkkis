@@ -35,6 +35,7 @@ app.use(express.static('aboutus'));
 app.use(express.static('contactus'));
 app.use(express.static('terms'));
 app.use(express.static('privacypolicy'));
+app.use(express.static('uploads'));
 
 
 // Serve image files
