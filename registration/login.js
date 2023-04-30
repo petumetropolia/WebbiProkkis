@@ -44,4 +44,7 @@ addUserForm.addEventListener('submit', async (evt) => {
     const response = await fetch(url + '/auth/register', fetchOptions);
     const json = await response.json();
     alert(json.message);
+    if (response.ok) {
+        window.location.href = "/swipe/swipe.html"; // redirect to login page
+    }
 });
