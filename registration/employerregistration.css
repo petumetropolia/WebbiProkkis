@@ -12,7 +12,7 @@
     background-position: center;
     background-size: cover;
     position: relative;
-    
+
 }
 .form-box{
     width: 90%;
@@ -52,7 +52,7 @@
     transition: max-height 0.5s;
     overflow: hidden;
     position: relative;
-    
+
 }
 input {
     width: 100%;
@@ -91,7 +91,7 @@ form p a{
     transition: background 1s;
 }
 .input-group{
-    height: 280px;
+    height: 220px;
 }
 .btn-field button.disable{
     background: #eaeaea;
@@ -171,14 +171,14 @@ header{
     justify-content: space-between;
     background: transparent;
     padding: 28px 12%;
-    
+
 }
 .logo{
     display: flex;
     align-items: center;
     margin-right: 3px;
     height: 40px;
-    
+
 }
 .logotext{
     font-size: 25px;
@@ -186,5 +186,5 @@ header{
     font-weight: 500;
     display: flex;
     align-items: center;
-   
+
 }
