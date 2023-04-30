@@ -29,8 +29,8 @@
     </ul>
     <div  class="main">
         <a id="kayttaja" href="/profileedit/profileedit.html" class="user"><i class="fa fa-user"></i>Testi Testaaja</a>
-        <form action="http://localhost:3000/auth/logout" method="post" name="form">
-        <a href="#">Log Out</a>
+        <form action="http://localhost:3000/auth/logout" method="get" name="form">
+        <a id="logout">Log Out</a>
         </form>
         <div class="fa fa-bars" id="menu-icon"></div>
     </div>
@@ -74,6 +74,7 @@
                     </div>
         </div>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script><script src="/swipe/swipe.js"></script>
+        <script src="/logout.js"></script>
 
 </body>
 </html>
