@@ -10,6 +10,10 @@ let love = document.getElementById('love');
 
 let kayttaja = document.getElementById("kayttaja");
 const kirjautunut = JSON.parse(sessionStorage.getItem('user'));
+
+if (!kirjautunut) {
+    location.href = "/registration.html"
+}
 kayttaja.innerHTML = kirjautunut.etunimi;
 
 document.getElementById("logo").onclick = function () {
