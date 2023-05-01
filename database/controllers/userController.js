@@ -41,21 +41,104 @@ const postUser = async (req,res) => {
         description: req.body.description,
         filename: req.file.filename,
         password: password,
-        //role: req.body.role,
+
     };
     try {
         const result = await userModel.insertUser(newUser);
+        //res.redirect("/swipe/swipe.html");
     }catch (error){
         console.error("error",error.message);
         res.status(500).json({error: 500, message: error.message});
     }
 
 };
-
-const putUser = async (req,res) => {
-    const user = req.body;
+const putUser = async (req, res) => {
     try {
-        const result = await userModel.modifyUser(req.body);
+        const userId = req.body.id
+        const salt = await bcrypt.genSalt(10);
+        const password = await bcrypt.hash(req.body.password, salt);
+        console.log("userid: " + userId);
+        console.log(req.body)
+        console.log(req.body.filename)
+        const user = {
+            name: req.body.name,
+            surname: req.body.surname,
+            email: req.body.email,
+            profession: req.body.profession,
+            description: req.body.description,
+            password: password,
+
+        };
+        if (req.file) {
+            user.filename = req.file.filename;
+        }else {
+            user.filename = req.body.sessionuser;
+        }
+
+        console.log("user: " + JSON.stringify(user));
+        const result = await userModel.modifyUser(userId, user);
+        res.status(200).json({ message: "User modified" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+/*
+const putUser = async (req, res) => {
+    try {
+        // Get the user ID from the request parameters
+        const userId  = req.body.id;
+
+        // Get the authenticated user object from req.user
+        const user = req.user;
+
+
+        // Check if the user exists
+        if (!user) {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+
+        // Call your update user function and pass the authenticated user object
+        const result = await userModel.modifyUser(userId, data, user)
+        console.log("UserID: " + userId);
+        console.log("RequestBody: " + req.body);
+        console.log("request.user: " + user);
+
+        // Return the updated user object
+        return res.status(200).json(result);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+};
+*/
+/*
+const putUser = async (req, res) => {
+    try {
+        const userId = req.body.id;
+        console.log("userid: " + userId);
+        const user = req.body.data;
+
+        console.log(user);
+        console.log(req.body);
+        const result = await userModel.modifyUser(userId, user);
+        res.status(200).json({ message: "User modified" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+ */
+/*
+const putUser = async (req,res) => {
+
+
+    const user = req.body;
+    console.log("request body is controller" + user);
+    try {
+        const result = await userModel.modifyUser(user);
         res.status(200).json({message: "user modified"});
     }
     catch (e){
@@ -65,6 +148,8 @@ const putUser = async (req,res) => {
 
 }
 
+
+ */
 
 const deleteUser = async (req,res) => {
     console.log("deleting a cat", req.params.userId);

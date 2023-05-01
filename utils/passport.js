@@ -53,6 +53,7 @@ passport.use(
     )
 );
 
+
 /*passport.use(
     new Strategy(async (username, password, done) => {
         console.log("työnantaja login credentials", username, password);

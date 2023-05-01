@@ -52,23 +52,24 @@ const insertUser = async (user) => {
     }
 };
 
-const modifyUser = async (user) => {
+const modifyUser = async (userId,user) => {
     try {
-        const sql =`UPDATE Työntekijä SET etunimi=?, sukunimi=?, s-Posti=?, kuvaus=?, salasana=?,
+        const sql =`UPDATE Työntekijä SET filename=?, etunimi=?, sukunimi=?, sähköposti=?, ammatti=?, kuvaus=?, salasana=?
         where tyontekija_id=?`;
+        console.log(user);
+
         const [rows] = await promisePool.query(sql,[
+            user.filename,
             user.name,
             user.surname,
             user.email,
+            user.profession,
             user.description,
             user.password,
-            user.id
+            userId
         ]);
-        const sql2 =`UPDATE Media SET tiedostonimi =? `;
-        const [rows2] = await promisePool.query(sql2,[
-            user.filename,
-        ]);
-        return rows, rows2;
+
+        return rows
     } catch (e) {
         console.error("error", e.message);
         throw new Error('sql update user failed');
@@ -90,7 +91,7 @@ const getUserLogin = async (email) => {
     try {
         console.log(email);
         const [rows] = await promisePool.execute(
-            'SELECT * FROM Työntekijä WHERE `s-Posti` = ?;',
+            'SELECT * FROM Työntekijä WHERE sähköposti = ?;',
             [email]);
         console.log('get user login rows', rows);
         return rows;
