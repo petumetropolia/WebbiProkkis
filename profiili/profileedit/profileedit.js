@@ -8,6 +8,8 @@ const ammatti = document.getElementById('ammatti');
 const aboutme = document.getElementById('aboutme');
 const userId = document.getElementById('userId');
 const fileInput = document.getElementById('input-file');
+const deleteUserId = document.getElementById("idForDelete")
+const deleteButton = document.getElementById('deleteButton');
 const url = 'http://localhost:3000';
 
 // Haetaan kirjautuneen henkilön tiedot sessionStoragesta
@@ -23,7 +25,8 @@ sahkoposti.value = kirjautunut.sähköposti;
 ammatti.value = kirjautunut.ammatti;
 aboutme.value= kirjautunut.kuvaus;
 userId.value = kirjautunut.tyontekija_id;
-
+deleteUserId.value = kirjautunut.tyontekija_id;
+console.log(deleteUserId.value);
 
 
 fileInput.addEventListener('change', function() {
@@ -53,7 +56,7 @@ function serializeJson(form) {
 }
 
 const modifyForm = document.getElementById("modifyUserForm");
-
+const deleteForm = document.getElementById("deletUserForm");
 const token = sessionStorage.getItem('token');
 console.log("TOKEN: ", token);
 
@@ -75,6 +78,32 @@ modifyForm.addEventListener('submit', function(event) {
             console.log(data);
             // redirect back to swipe.html
             window.location.href = '/swipe/swipe.html';
+        })
+        .catch(error => {
+            // Handle any errors here
+            console.error(error);
+        });
+});
+
+deleteForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const userId = deleteUserId.value;
+
+    fetch(`${url}/user/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response data here
+            console.log(data);
+            // redirect back to swipe.html
+            alert("User Deleted");
+            sessionStorage.removeItem('token');
+            sessionStorage.removeItem('user');
+            window.location.href = '/home.html';
         })
         .catch(error => {
             // Handle any errors here

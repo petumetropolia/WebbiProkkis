@@ -52,6 +52,7 @@ app.use('/user', passport.authenticate('jwt', {session: false}), userRoute);
 
 
 //app.use('/users', userRoute);
+
 app.use('/employer', tyonantajaRoute);
 //app.use('/employer', passport.authenticate('jwt', {session: false}),tyonantajaRoute);
 

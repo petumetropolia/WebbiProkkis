@@ -46,6 +46,6 @@ addUserForm.addEventListener('submit', async (evt) => {
     alert(json.message);
     if (response.ok) {
 
-        window.location.href = "/swipe/swipe.html"; // redirect to login page
+        window.location.href = "/"; // redirect to login page
     }
 });

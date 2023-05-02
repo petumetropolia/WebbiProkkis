@@ -152,14 +152,16 @@ const putUser = async (req,res) => {
  */
 
 const deleteUser = async (req,res) => {
-    console.log("deleting a cat", req.params.userId);
+
     try {
 
         const result = await userModel.deleteUser(req.params.userId);
-        res.status(200).send("User deleted");
+        console.log(req.params);
+        console.log(req.params.userId);
+        res.status(200).json({ message: "User deleted" });
     }catch (e){
         console.error("error",e.message);
-        res.status(500).json({error: 500, message: e.message});
+        res.status(500).json({ message: "Internal server error" });
     }
 }
 
