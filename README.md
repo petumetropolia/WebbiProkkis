@@ -14,6 +14,6 @@ JobSeeker is a school project made by three engineering students Kim Rautiainen,
 
 
 ```
-SQL-scripti löytyy database-kansiosta webdb-nimellä.
+SQL-scripti löytyy database-kansiosta webdb nimellä.
 npm install
 ```
