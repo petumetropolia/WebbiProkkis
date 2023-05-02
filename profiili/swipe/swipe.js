@@ -97,23 +97,25 @@ const createUserCards = (users) => {
         });
     });
 };
-const getUser = async () => {
-    const token = sessionStorage.getItem('token'); // retrieve token from sessionstorage
+const getUser = async () => { // Define an asynchronous function getUser
+    const token = sessionStorage.getItem('token'); // Retrieve the token from the session storage
     try {
-        const response = await fetch(url + '/employer', {
+        const response = await fetch(url + '/employer', { // Send a GET request to the server to retrieve employer users
             headers: {
-                'Authorization': 'Bearer ' + token // include token in headers
+                'Authorization': 'Bearer ' + token // Include the token in the request headers
             }
         });
-        console.log(response);
-        const users = await response.json();
-        console.log(users);
-        createUserCards(users);
-    } catch (error) {
-        console.log(error.message);
+        console.log(response); // Log the response object to the console
+        const users = await response.json(); // Parse the response body as JSON and store the resulting array of users in a variable
+        console.log(users); // Log the users array to the console
+        createUserCards(users); // Call a function to create HTML cards for each user in the array
+    } catch (error) { // Catch any errors that occur during the request or response handling
+        console.log(error.message); // Log the error message to the console
     }
 };
-getUser();
+
+getUser(); // Call the getUser function to retrieve and display the employer users.
+
 
 /*
 // AJAX call to get employer data from database
