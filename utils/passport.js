@@ -47,12 +47,9 @@ passport.use(
             } catch (error) {
                 return done(error);
             }
-            // (or extract data from token, note: user data in token might be outdated)
-            // return done(null, jwtPayload);
-        }
+       }
     )
 );
-
 
 /*passport.use(
     new Strategy(async (username, password, done) => {
