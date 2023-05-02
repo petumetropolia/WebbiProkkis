@@ -1,29 +1,29 @@
 'use strict';
 const kuva = document.getElementById('profile-pic');
+const sessionkuva = document.getElementById('sessionInput')
 const etunimi = document.getElementById('etunimi');
 const sukunimi = document.getElementById('sukunimi');
 const sahkoposti = document.getElementById('sahkoposti');
 const ammatti = document.getElementById('ammatti');
 const aboutme = document.getElementById('aboutme');
+const userId = document.getElementById('userId');
 const fileInput = document.getElementById('input-file');
-
+const url = 'http://localhost:3000';
 
 // Haetaan kirjautuneen henkilön tiedot sessionStoragesta
 const kirjautunut = JSON.parse(sessionStorage.getItem('user'));
 
 // Liitetään kirjautuneen tiedot formiin
-console.log(kirjautunut);
-console.log(kirjautunut[4]);
+
 kuva.src = "/uploads/" + kirjautunut.filename;
+sessionkuva.value = kirjautunut.filename;
 etunimi.value = kirjautunut.etunimi;
 sukunimi.value = kirjautunut.sukunimi;
-console.log(kirjautunut.sukunimi);
-sahkoposti.value = kirjautunut[3];
-console.log(kirjautunut[3]);
+sahkoposti.value = kirjautunut.sähköposti;
 ammatti.value = kirjautunut.ammatti;
-console.log(kirjautunut.ammatti)
 aboutme.value= kirjautunut.kuvaus;
-console.log(kirjautunut.kuvaus)
+userId.value = kirjautunut.tyontekija_id;
+
 
 
 fileInput.addEventListener('change', function() {
@@ -36,3 +36,72 @@ fileInput.addEventListener('change', function() {
 
     reader.readAsDataURL(file);
 });
+function serializeJson(form) {
+    // Create a new FormData object
+    let formData = new FormData(form);
+
+    // Loop through each input field and append the data to the formData object
+    for (let i = 0; i < form.elements.length; i++) {
+        let field = form.elements[i];
+        if (field.type !== "file" && field.name) {
+            formData.append(field.name, field.value);
+        }
+    }
+
+    // Return the formData object
+    return formData;
+}
+
+const modifyForm = document.getElementById("modifyUserForm");
+
+const token = sessionStorage.getItem('token');
+console.log("TOKEN: ", token);
+
+modifyForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(modifyForm);
+
+    fetch(url + '/user', {
+        method: 'PUT',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+        },
+        body: formData
+    })
+
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response data here
+            console.log(data);
+            // redirect back to swipe.html
+            window.location.href = '/swipe/swipe.html';
+        })
+        .catch(error => {
+            // Handle any errors here
+            console.error(error);
+        });
+});
+
+/*
+    // make a PUT request with the token in the header
+    fetch(url + "/user", {
+        method: 'PUT',
+        headers: {
+            'Authorization': `Bearer ${token}`, // include the token in the Authorization header
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({data})
+    })
+       const response = await fetch(url + '/user')
+});
+*/
+/*
+    fetch(url + '/user/' + kirjautunut.tyontekija_id, {
+        method: 'PUT',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'multipart/form-data'
+        },
+        body: formData
+    })*/
+

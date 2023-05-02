@@ -26,7 +26,7 @@ loginForm.addEventListener('submit', async (evt) => {
         // save token
         sessionStorage.setItem('token', json.token);
         sessionStorage.setItem('user', JSON.stringify(json.user));
-        location.href = '/swipe/swipe.html';
+        window.location.href = '/swipe/swipe.html';
     }
 });
 
@@ -45,6 +45,7 @@ addUserForm.addEventListener('submit', async (evt) => {
     const json = await response.json();
     alert(json.message);
     if (response.ok) {
+
         window.location.href = "/swipe/swipe.html"; // redirect to login page
     }
 });

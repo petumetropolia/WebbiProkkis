@@ -3,7 +3,7 @@ CREATE TABLE `Työntekijä`
   `tyontekija_id` INT NOT NULL,
   `etunimi` text NOT NULL,
   `sukunimi` text NOT NULL,
-  `s-Posti` text NOT NULL,
+  `sähköposti` text NOT NULL,
   `ammatti` text NOT NULL,
   `kuvaus` text NOT NULL,
   `filename` text NOT NULL,

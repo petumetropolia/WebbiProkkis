@@ -14,28 +14,30 @@
 <body>
 <div class="wrapper">
     <div class="inner">
-        <form action="http://localhost:3000/user" method="put" name="form" enctype="multipart/form-data" id="addUserForm">
+        <form action="http://localhost:3000/user" method="put" name="form" enctype="multipart/form-data" id="modifyUserForm">
             <div class="profile-pic-div">
                 <img id="profile-pic">
                 <label for="input-file">Choose a picture</label>
-                <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg">
+                <input type="file" id="input-file" accept="image/jpeg, image/png, image/jpg" name="user">
+                <input type="hidden" id="sessionInput"  name="sessionuser">
             </div>
             <h3>Account settings</h3>
             <div class="form-group">
-                <input id="etunimi" type="text" placeholder="First name" maxlength="25" class="form-control" required>
-                <input id="sukunimi" type="text" placeholder="Last name" maxlength="25" class="form-control" required>
+                <input id="etunimi" type="text" placeholder="First name" maxlength="25" class="form-control" required name="name">
+                <input id="sukunimi" type="text" placeholder="Last name" maxlength="25" class="form-control" required name="surname">
             </div>
             <div class="form-group">
-                <input id="sahkoposti" type="email" placeholder="Email" class="form-control" required>
-                <input id="ammatti" type="text" placeholder="Profession" maxlength="25" class="form-control" required>
+                <input id="sahkoposti" type="email" placeholder="Email" class="form-control" required name="email">
+                <input id="ammatti" type="text" placeholder="Profession" maxlength="25" class="form-control" required name="profession">
             </div>
             <div class="form-wrapper">
-                <input id="aboutme" type="text" placeholder="About me" maxlength="225" class="form-control" required>
+                <input id="aboutme" type="text" placeholder="About me" maxlength="225" class="form-control" required name="description">
             </div>
             <div class="form-group">
-                <input type="password" placeholder="Password"  minlength="10" class="form-control" required>
-                <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required>
+                <input type="password" placeholder="Password"  minlength="10" class="form-control" required name="password">
+                <input type="password" placeholder="Confirm password"  minlength="10" class="form-control" required name="password2">
             </div>
+            <input id="userId" type="hidden" name="id" >
             <button type="submit">Confirm changes</button>
         </form>
         <br>
@@ -45,6 +47,7 @@
     </div>
 </div>
 <script src="/profileedit/profileedit.js"></script>
+
 <!--
 <script>
 
