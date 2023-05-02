@@ -45,7 +45,7 @@ const postUser = async (req,res) => {
     };
     try {
         const result = await userModel.insertUser(newUser);
-        //res.redirect("/swipe/swipe.html");
+        res.redirect("/registration.html");
     }catch (error){
         console.error("error",error.message);
         res.status(500).json({error: 500, message: error.message});
