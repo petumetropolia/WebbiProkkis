@@ -43,16 +43,15 @@ app.use('/uploads', express.static('uploads'));
 
 // Middleware for parsing request body
 app.use(express.json());
+// Middleware for parsing URL-encoded request bodies with extended options.
 app.use(express.urlencoded({extended: true}));
-
+// Initialize Passport for authentication.
 app.use(passport.initialize());
-
+// Use the authRoute for handling authentication-related routes
 app.use('/auth', authRoute);
+// Use the userRoute for handling user-related routes under the '/user' endpoint, and require authentication using the JWT strategy.
 app.use('/user', passport.authenticate('jwt', {session: false}), userRoute);
-
-
-//app.use('/users', userRoute);
-
+// Use the tyonantajaRoute for handling tyonantaja-related routes under the '/employer' endpoint.
 app.use('/employer', tyonantajaRoute);
 //app.use('/employer', passport.authenticate('jwt', {session: false}),tyonantajaRoute);
 

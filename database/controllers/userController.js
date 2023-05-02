@@ -31,8 +31,11 @@ const getUser =  async (req, res) => {
 };
 const postUser = async (req,res) => {
     console.log("posting user", req.body, req.file);
+    // Generate a salt with bcrypt
     const salt = await bcrypt.genSalt(10);
+    // Hash the user's password using bcrypt and the generated salt
     const password = await bcrypt.hash(req.body.password, salt);
+    // Create a new user object with the user's input values and the generated password and filename
     const newUser = {
         name: req.body.name,
         surname: req.body.surname,
@@ -44,9 +47,12 @@ const postUser = async (req,res) => {
 
     };
     try {
+        // Call the insertUser method on the userModel object with the new user object as the argument and store the result
         const result = await userModel.insertUser(newUser);
+        // Redirect the user to the registration.html page
         res.redirect("/registration.html");
     }catch (error){
+        // If there is an error, log the error message and send a 500 status code and error message in JSON format to the client
         console.error("error",error.message);
         res.status(500).json({error: 500, message: error.message});
     }

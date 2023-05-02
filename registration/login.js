@@ -8,7 +8,9 @@ const addUserForm = document.getElementById('addUserForm');
 // login
 loginForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
+    // Serialize form data into JSON format
     const data = serializeJson(loginForm);
+    // Prepare fetch options for the login request
     const fetchOptions = {
         method: 'POST',
         headers: {
@@ -17,19 +19,22 @@ loginForm.addEventListener('submit', async (evt) => {
         body: JSON.stringify(data),
     };
 
+    // Send login request to the server
     const response = await fetch(url + '/auth/login', fetchOptions);
     const json = await response.json();
     console.log('login response', json);
+    // Check if the login was successful
     if (!json.user) {
         alert(json.message);
     } else {
-        // save token
+        // Save token and user information in session storage
         sessionStorage.setItem('token', json.token);
         sessionStorage.setItem('user', JSON.stringify(json.user));
-        window.location.href = '/swipe/swipe.html';
+        window.location.href = '/swipe/swipe.html'; // redirect to swipe page
     }
 });
 
+// same as above but with register
 // submit register form
 addUserForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
@@ -46,6 +51,6 @@ addUserForm.addEventListener('submit', async (evt) => {
     alert(json.message);
     if (response.ok) {
 
-        window.location.href = "/"; // redirect to login page
+        window.location.href = "/"; // redirect to sign in page
     }
 });
