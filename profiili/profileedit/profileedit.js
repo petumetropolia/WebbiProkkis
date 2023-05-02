@@ -1,4 +1,6 @@
 'use strict';
+
+// Haetaan hmtlstä id avulla ja tallennetaan ne muuttujiin.
 const kuva = document.getElementById('profile-pic');
 const sessionkuva = document.getElementById('sessionInput')
 const etunimi = document.getElementById('etunimi');
@@ -10,7 +12,7 @@ const userId = document.getElementById('userId');
 const fileInput = document.getElementById('input-file');
 const deleteUserId = document.getElementById("idForDelete")
 const deleteButton = document.getElementById('deleteButton');
-const url = 'http://localhost:3000';
+const url = 'bcwt-server-emil.northeurope.cloudapp.azure.com/app';
 
 // Haetaan kirjautuneen henkilön tiedot sessionStoragesta
 const kirjautunut = JSON.parse(sessionStorage.getItem('user'));
@@ -26,9 +28,9 @@ ammatti.value = kirjautunut.ammatti;
 aboutme.value= kirjautunut.kuvaus;
 userId.value = kirjautunut.tyontekija_id;
 deleteUserId.value = kirjautunut.tyontekija_id;
-console.log(deleteUserId.value);
 
 
+// jos kuva vaihdetaan niin vaihdetaan sourcen value
 fileInput.addEventListener('change', function() {
     const file = fileInput.files[0];
     const reader = new FileReader();
@@ -60,6 +62,7 @@ const deleteForm = document.getElementById("deletUserForm");
 const token = sessionStorage.getItem('token');
 console.log("TOKEN: ", token);
 
+// event listener user modifylle
 modifyForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(modifyForm);
@@ -84,7 +87,7 @@ modifyForm.addEventListener('submit', function(event) {
             console.error(error);
         });
 });
-
+// event listener user deletelle
 deleteForm.addEventListener('submit', function(event) {
     event.preventDefault();
     const userId = deleteUserId.value;
@@ -99,8 +102,9 @@ deleteForm.addEventListener('submit', function(event) {
         .then(data => {
             // Handle the response data here
             console.log(data);
-            // redirect back to swipe.html
+
             alert("User Deleted");
+            // poistetaan tiedot sessionstoragesta
             sessionStorage.removeItem('token');
             sessionStorage.removeItem('user');
             window.location.href = '/home.html';
@@ -111,26 +115,5 @@ deleteForm.addEventListener('submit', function(event) {
         });
 });
 
-/*
-    // make a PUT request with the token in the header
-    fetch(url + "/user", {
-        method: 'PUT',
-        headers: {
-            'Authorization': `Bearer ${token}`, // include the token in the Authorization header
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({data})
-    })
-       const response = await fetch(url + '/user')
-});
-*/
-/*
-    fetch(url + '/user/' + kirjautunut.tyontekija_id, {
-        method: 'PUT',
-        headers: {
-            'Authorization': 'Bearer ' + token,
-            'Content-Type': 'multipart/form-data'
-        },
-        body: formData
-    })*/
+
 

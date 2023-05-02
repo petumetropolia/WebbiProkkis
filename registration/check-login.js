@@ -1,6 +1,6 @@
 (async () => {
     'use strict';
-    const url = 'http://localhost:3000'; // change url when uploading to server
+    const url = 'bcwt-server-emil.northeurope.cloudapp.azure.com/app'; // change url when uploading to server
 
     // check sessionStorage
     if (!sessionStorage.getItem('token') || !sessionStorage.getItem('user')) {
