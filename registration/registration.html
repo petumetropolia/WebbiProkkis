@@ -15,7 +15,7 @@
 </head>
 <body>
 <header>
-    <div class="logotext">JobSeeker
+    <div id="logo" class="logotext">JobSeeker
         <img src="wifi.png" class="logo">
     </div></header>
 <div class="container">
@@ -49,6 +49,9 @@
 </div>
 
 <script>
+    document.getElementById("logo").onclick = function () {
+        location.href = "/home.html";
+    };
     function myFunction(){
         let x = document.getElementById("myInput");
         let y = document.getElementById("hide1");
