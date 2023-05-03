@@ -1,5 +1,5 @@
 'use strict';
-const url = 'bcwt-server-emil.northeurope.cloudapp.azure.com/app'; // change url when uploading to server
+const url = 'http://localhost:3000'; // change url when uploading to server
 
 // select existing html elements
 const loginForm = document.getElementById('login-form');

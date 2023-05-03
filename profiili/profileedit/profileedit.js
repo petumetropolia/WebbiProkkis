@@ -12,7 +12,7 @@ const userId = document.getElementById('userId');
 const fileInput = document.getElementById('input-file');
 const deleteUserId = document.getElementById("idForDelete")
 const deleteButton = document.getElementById('deleteButton');
-const url = 'bcwt-server-emil.northeurope.cloudapp.azure.com/app';
+const url = 'http://localhost:3000';
 
 // Haetaan kirjautuneen henkilön tiedot sessionStoragesta
 const kirjautunut = JSON.parse(sessionStorage.getItem('user'));

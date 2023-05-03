@@ -1,6 +1,6 @@
 (async () => {
     'use strict';
-    const url = 'bcwt-server-emil.northeurope.cloudapp.azure.com/app'; // change url when uploading to server
+    const url = 'http://localhost:3000'; // change url when uploading to server
 
     // Check whether the user is already authenticated by checking whether their token and user data are stored in the session storage.
     if (!sessionStorage.getItem('token') || !sessionStorage.getItem('user')) {
